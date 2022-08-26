@@ -4,6 +4,41 @@
       "content": "Create LLC",
       "important": false,
       "id": 1
+    },
+    {
+      "content": "Get gun",
+      "important": true,
+      "id": 2
+    },
+    {
+      "content": "Shave/Nails/Hair",
+      "important": false,
+      "id": 3
+    },
+    {
+      "content": "Resume / Portfolio / LinkedIn / GitHub",
+      "important": false,
+      "id": 4
+    },
+    {
+      "content": "pbd identity assessment",
+      "important": true,
+      "id": 6
+    },
+    {
+      "content": "clean and sublease house",
+      "important": false,
+      "id": 7
+    },
+    {
+      "content": "Clean and sell Van",
+      "important": true,
+      "id": 8
+    },
+    {
+      "content": "Apply to 100 jobs",
+      "important": true,
+      "id": 9
     }
   ]
 }

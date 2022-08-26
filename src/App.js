@@ -1,12 +1,12 @@
-// query database for current day's to-do items
 import './static/App.css'
-import AddTask from './components/addTask'
-import TaskCount from './components/taskCount'
-import TaskList from './components/taskList'
+import AddTask from './components/Tasks/addTask'
+import TaskCount from './components/Tasks/taskCount'
+import TaskList from './components/Tasks/taskList'
 import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import Tabs from './components/Tabs'
 import Calendar from 'react-calendar'
+import WeekTimeline from './components/Week/weekTimeline'
 import './static/Calendar.css';
 
 const App = () => 
@@ -16,17 +16,12 @@ const App = () =>
 
   console.log(todos)
   useEffect(() => {
-    console.log('effect')
     axios
       .get('http://localhost:3001/todos')
       .then(response => {
-        console.log('promise fulfilled')
         setTodos(response.data)
       })
   }, [])
-
-
-
   return(
   <div>
     
@@ -45,12 +40,12 @@ const App = () =>
         </div>
         </div>
         <div label="Week">
-          
+          <WeekTimeline />
         </div>
         <div label="Month">
         <div className='calendar-container'>
             <Calendar onChange={setDate} value={date} />
-          </div>
+        </div>
         </div>
       </Tabs>
     </div>
