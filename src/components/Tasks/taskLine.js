@@ -1,23 +1,45 @@
 import axios from 'axios'
 import { FaCog } from "react-icons/fa"
-import Popup from 'reactjs-popup';
+import Popup from 'reactjs-popup'
+import {useState} from 'react'
 
-const taskLine = ({props, actionName, stateVar}) => {
+
+
+const TaskLine = ({props, actionName}) => {
+    let [changeInput, setChangeInput ] = useState(props.content)
+
+    const handleChange = e => {
+        setChangeInput(e.target.value)
+    }
+
+
+
+//     const handleSubmit = () => {
+//     const todoObject = {
+//     content: input,
+//     important: Math.random() < 0.5}          
+//     axios    
+//     .post('http://localhost:3001/todos', todoObject)    
+//     .then(response => {  
+//         actionName(stateVar.concat(response.data))
+//             })
+//     setInput("")
+// }
+
+
+
 
     const refreshList = () => {
       axios
         .get('http://localhost:3001/todos')
         .then(response => {
-        console.log('PROMISEZ?? fulfilled')
         actionName(response.data)
       })
     }
     const finishTask = () => {
-        console.log(props.id);
         axios
         .delete('http://localhost:3001/todos/'+props.id)
         .then(response => {  
-          console.log('hey cutie')
           refreshList()
         })
       }
@@ -30,7 +52,7 @@ return(<div className="task" key={props.id}>
                                   <Popup trigger={<i className="changeBtn"> <FaCog className="spinner" /></i>} 
                                   modal>
                                     <div className="modal">
-                                    <div className="modal__title"><h1>{props.content}</h1></div>
+                                    <div className="modal__title"><input type="text" className="addTask" value={changeInput} onChange={handleChange}/></div>
                                     <div>Remind?</div>
                                     <div>Reoccuring?</div>
                                     </div>
@@ -40,4 +62,4 @@ return(<div className="task" key={props.id}>
 )
 }
 
-export default taskLine
+export default TaskLine

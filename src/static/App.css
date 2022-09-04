@@ -166,10 +166,17 @@ to {
 .modal {
   text-align:center;
   min-width:600px;
+  min-height:600px;
+  opacity:.9;
   width: 90%;
   margin: auto;
   background-color: #1173e4;
   border-radius:20px;
+}
+
+.modalTitle {
+  color: white;
+  
 }
 
 .modal__title {
